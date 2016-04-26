@@ -42,7 +42,7 @@ class Config(object):
     def validate(self):
         """ Perform validation check on properties.
         """
-        if not self.auth_method in ['user:pass', 'user:md5', 'oauth']:
+        if not self.auth_method in ['user:pass', 'user:md5', 'oauth', 'api_token']:
             raise ImproperlyConfigured("No authentication method provided.")
         else:
             if self.auth_method == "user:pass":
