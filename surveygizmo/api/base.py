@@ -158,6 +158,11 @@ class Resource(object):
                 config.auth_method: "%s:%s" % (config.username, config.md5_hash),
             })
 
+        elif config.auth_method == 'api_token':
+            kwargs.update({
+                config.auth_method: "%s" % config.api_token,
+        })
+
         return kwargs
 
     def execute(self, url, params):

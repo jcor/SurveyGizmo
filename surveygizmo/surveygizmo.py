@@ -26,6 +26,8 @@ class Config(object):
         self.username = kwargs.get('username', None)
         self.password = kwargs.get('password', None)
         self.md5_hash = kwargs.get('md5_hash', None)
+        self.api_token = kwargs.get('api_token', None)
+        self.api_token_secret= kwargs.get('api_token_secret', None)
         self.consumer_key = kwargs.get('consumer_key', None)
         self.consumer_secret = kwargs.get('consumer_secret', None)
         self.access_token = kwargs.get('access_token', None)
@@ -51,6 +53,9 @@ class Config(object):
                     raise ImproperlyConfigured("Username required for 'user:md5' authentication.")
                 elif not self.password and not self.md5_hash:
                     raise ImproperlyConfigured("Password or md5 hash of password required for 'user:md5' authentication.")
+            elif self.auth_method == "api_token":
+                if not self.api_token or not self.api_token_secret:
+                    raise ImproperlyConfigured("API Token for 'api_token' and 'api_secret' authentication.")
             elif self.auth_method == "oauth":
                 if not self.consumer_key or not self.consumer_secret or \
                    not self.access_token or not self.access_token_secret:
