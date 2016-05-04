@@ -17,7 +17,6 @@ setup(
     url='https://github.com/rpkilby/SurveyGizmo/',
     packages=find_packages(),
     install_requires=['requests==1.2.3', 'rauth'],
-    dependency_links=['https://github.com/jcor/SurveyGizmo/tarball/master#egg=package-1.0'],
     license='BSD License',
     classifiers=(
         'Development Status :: 3 - Alpha',
