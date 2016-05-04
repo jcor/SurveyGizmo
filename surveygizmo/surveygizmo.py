@@ -55,7 +55,7 @@ class Config(object):
                     raise ImproperlyConfigured("Password or md5 hash of password required for 'user:md5' authentication.")
             elif self.auth_method == "api_token":
                 if not self.api_token or not self.api_token_secret:
-                    raise ImproperlyConfigured("API Token for 'api_token' and 'api_secret' authentication.")
+                    raise ImproperlyConfigured("API Token for 'api_token' and 'api_token_secret' authentication.")
             elif self.auth_method == "oauth":
                 if not self.consumer_key or not self.consumer_secret or \
                    not self.access_token or not self.access_token_secret:
